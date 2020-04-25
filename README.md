@@ -19,7 +19,7 @@ CUDA_VISIBLE_DEVICES=0 python train.py \
     --encoder_type pixel \
     --action_repeat 8 \
     --save_tb --pre_transform_image_size 100 --image_size 84 \
-    --work_dir ./tmp \
+    --work_dir ./ \
     --agent curl_sac --frame_stack 3 \
     --seed -1 --critic_lr 1e-3 --actor_lr 1e-3 --eval_freq 10000 --batch_size 128 --num_train_steps 1000000 
 ```
@@ -49,10 +49,10 @@ CR_LOSS - average loss of critic
 CU_LOSS - average loss of the CURL encoder
 ```
 
-All data related to the run is stored in the specified `working_dir`. To enable model or video saving, use the `--save_model` or `--save_video` flags. For all available flags, inspect `train.py`. To visualize progress with tensorboard run:
+All data related to the run is stored in the specified `working_dir`. To enable model or video saving, use the `--save_model` or `--save_video` flags. For all available flags, inspect `train.py`. To visualize progress with tensorboard run in the log repo:
 
 ```
-tensorboard --logdir log --port 6006
+tensorboard --logdir .
 ```
 
 and go to `localhost:6006` in your browser. If you're running headlessly, try port forwarding with ssh. 
